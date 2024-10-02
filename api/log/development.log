@@ -1,0 +1,684 @@
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Create (0.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2024-10-02 15:31:09.076927', '2024-10-02 15:31:09.076929') RETURNING "key"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20241002152652)
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20241002152652)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar NOT NULL, "email" varchar NOT NULL, "password" varchar NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20241002152652') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateTransactions (20241002152820)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "transactions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "amount" decimal, "description" varchar, "date" date, "category" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20241002152820') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to DeviseCreateUsers (20241002161229)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime(6), "remember_created_at" datetime(6), "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to DeviseCreateUsers (20241002161229)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime(6), "remember_created_at" datetime(6), "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to DeviseCreateUsers (20241002161229)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime(6), "remember_created_at" datetime(6), "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to DeviseCreateUsers (20241002161229)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime(6), "remember_created_at" datetime(6), "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to DropTableUser (20241002161353)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.4ms)[0m  [1m[35mDROP TABLE "users"[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20241002161353') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to DeviseCreateUsers (20241002161229)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime(6), "remember_created_at" datetime(6), "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20241002161229') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddNameToUsers (20241002162813)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.4ms)[0m  [1m[35mALTER TABLE "users" ADD "name" varchar[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20241002162813') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddJtiToUsers (20241002163601)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TEMPORARY TABLE "ausers" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar DEFAULT NULL, "reset_password_sent_at" datetime(6) DEFAULT NULL, "remember_created_at" datetime(6) DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "name" varchar DEFAULT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_ausers_on_reset_password_token" ON "ausers" ("reset_password_token")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_ausers_on_email" ON "ausers" ("email")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "ausers" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","created_at","updated_at","name")
+                     SELECT "id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","created_at","updated_at","name" FROM "users"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "users"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar DEFAULT NULL, "reset_password_sent_at" datetime(6) DEFAULT NULL, "remember_created_at" datetime(6) DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "name" varchar DEFAULT NULL, "jti" varchar NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "users" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","created_at","updated_at","name")
+                     SELECT "id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","created_at","updated_at","name" FROM "ausers"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE "ausers"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_jti" ON "users" ("jti")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20241002163601') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "//signup" for ::1 at 2024-10-02 17:52:16 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Users::RegistrationsController#create as */*
+  Parameters: {"email"=>"daniel.mcpherson@live.co.uk", "password"=>"[FILTERED]", "name"=>"Daniel", "registration"=>{"email"=>"daniel.mcpherson@live.co.uk", "password"=>"[FILTERED]", "name"=>"Daniel"}}
+Completed 422 Unprocessable Content in 18ms (Views: 0.2ms | ActiveRecord: 0.9ms | Allocations: 17372)
+
+
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for pp */ LIMIT ?[0m  [["LIMIT", 11]]
+Started POST "//signup" for ::1 at 2024-10-02 17:59:08 +0100
+Processing by Users::RegistrationsController#create as */*
+  Parameters: {"user"=>{"email"=>"daniel.mcpherson@live.co.uk", "password"=>"[FILTERED]", "name"=>"Daniel"}, "registration"=>{"user"=>{"email"=>"daniel.mcpherson@live.co.uk", "password"=>"[FILTERED]", "name"=>"Daniel"}}}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (1.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "daniel.mcpherson@live.co.uk"], ["LIMIT", 1]]
+  [1m[36mUser Create (1.5ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at", "name", "jti") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["email", "daniel.mcpherson@live.co.uk"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["created_at", "2024-10-02 16:59:08.796340"], ["updated_at", "2024-10-02 16:59:08.796340"], ["name", "Daniel"], ["jti", nil]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+Completed 500 Internal Server Error in 663ms (ActiveRecord: 3.9ms | Allocations: 9126)
+
+
+  
+ActiveRecord::NotNullViolation (SQLite3::ConstraintException: NOT NULL constraint failed: users.jti):
+  
+Started POST "//signup" for ::1 at 2024-10-02 17:59:15 +0100
+Processing by Users::RegistrationsController#create as */*
+  Parameters: {"user"=>{"email"=>"daniel.mcpherson@live.co.uk", "password"=>"[FILTERED]", "name"=>"Daniel"}, "registration"=>{"user"=>{"email"=>"daniel.mcpherson@live.co.uk", "password"=>"[FILTERED]", "name"=>"Daniel"}}}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "daniel.mcpherson@live.co.uk"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at", "name", "jti") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["email", "daniel.mcpherson@live.co.uk"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["created_at", "2024-10-02 16:59:15.744200"], ["updated_at", "2024-10-02 16:59:15.744200"], ["name", "Daniel"], ["jti", nil]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+Completed 500 Internal Server Error in 297ms (ActiveRecord: 1.3ms | Allocations: 4088)
+
+
+  
+ActiveRecord::NotNullViolation (SQLite3::ConstraintException: NOT NULL constraint failed: users.jti):
+  
+Started POST "//signup" for ::1 at 2024-10-02 18:01:11 +0100
+Processing by Users::RegistrationsController#create as */*
+  Parameters: {"user"=>{"email"=>"daniel.mcpherson@live.co.uk", "password"=>"[FILTERED]", "name"=>"Daniel"}, "registration"=>{"user"=>{"email"=>"daniel.mcpherson@live.co.uk", "password"=>"[FILTERED]", "name"=>"Daniel"}}}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "daniel.mcpherson@live.co.uk"], ["LIMIT", 1]]
+  [1m[36mUser Create (1.0ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at", "name", "jti") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["email", "daniel.mcpherson@live.co.uk"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["created_at", "2024-10-02 17:01:11.723860"], ["updated_at", "2024-10-02 17:01:11.723860"], ["name", "Daniel"], ["jti", "680f44cd-3fa4-45fb-8282-f2088a2874bb"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+Completed 200 OK in 278ms (Views: 0.1ms | ActiveRecord: 3.2ms | Allocations: 9810)
+
+
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for pp */ LIMIT ?[0m  [["LIMIT", 11]]
+Started POST "//login" for ::1 at 2024-10-02 18:02:48 +0100
+Processing by Users::SessionsController#create as */*
+  Parameters: {"user"=>{"email"=>"daniel.mcpherson@live.co.uk", "password"=>"[FILTERED]"}, "session"=>{"user"=>{"email"=>"daniel.mcpherson@live.co.uk", "password"=>"[FILTERED]"}}}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms | Allocations: 444)
+
+
+  
+NoMethodError (undefined method `rememberable_options' for class User):
+  
+activerecord (7.1.4) lib/active_record/dynamic_matchers.rb:22:in `method_missing'
+devise (4.9.4) lib/devise/strategies/rememberable.rb:56:in `remember_key'
+devise (4.9.4) lib/devise/strategies/rememberable.rb:60:in `remember_cookie'
+devise (4.9.4) lib/devise/strategies/rememberable.rb:15:in `valid?'
+warden (1.2.9) lib/warden/proxy.rb:367:in `block in _run_strategies_for'
+warden (1.2.9) lib/warden/proxy.rb:365:in `each'
+warden (1.2.9) lib/warden/proxy.rb:365:in `_run_strategies_for'
+warden (1.2.9) lib/warden/proxy.rb:335:in `_perform_authentication'
+warden (1.2.9) lib/warden/proxy.rb:133:in `authenticate!'
+devise (4.9.4) app/controllers/devise/sessions_controller.rb:19:in `create'
+actionpack (7.1.4) lib/action_controller/metal/basic_implicit_render.rb:6:in `send_action'
+actionpack (7.1.4) lib/abstract_controller/base.rb:224:in `process_action'
+actionpack (7.1.4) lib/action_controller/metal/rendering.rb:165:in `process_action'
+actionpack (7.1.4) lib/abstract_controller/callbacks.rb:259:in `block in process_action'
+activesupport (7.1.4) lib/active_support/callbacks.rb:110:in `run_callbacks'
+actionpack (7.1.4) lib/abstract_controller/callbacks.rb:258:in `process_action'
+actionpack (7.1.4) lib/action_controller/metal/rescue.rb:25:in `process_action'
+actionpack (7.1.4) lib/action_controller/metal/instrumentation.rb:74:in `block in process_action'
+activesupport (7.1.4) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.1.4) lib/active_support/notifications/instrumenter.rb:58:in `instrument'
+activesupport (7.1.4) lib/active_support/notifications.rb:206:in `instrument'
+actionpack (7.1.4) lib/action_controller/metal/instrumentation.rb:73:in `process_action'
+actionpack (7.1.4) lib/action_controller/metal/params_wrapper.rb:261:in `process_action'
+activerecord (7.1.4) lib/active_record/railties/controller_runtime.rb:32:in `process_action'
+actionpack (7.1.4) lib/abstract_controller/base.rb:160:in `process'
+actionpack (7.1.4) lib/action_controller/metal.rb:227:in `dispatch'
+actionpack (7.1.4) lib/action_controller/metal.rb:309:in `dispatch'
+actionpack (7.1.4) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.1.4) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.1.4) lib/action_dispatch/routing/mapper.rb:30:in `block in <class:Constraints>'
+actionpack (7.1.4) lib/action_dispatch/routing/mapper.rb:60:in `serve'
+actionpack (7.1.4) lib/action_dispatch/journey/router.rb:51:in `block in serve'
+actionpack (7.1.4) lib/action_dispatch/journey/router.rb:131:in `block in find_routes'
+actionpack (7.1.4) lib/action_dispatch/journey/router.rb:124:in `each'
+actionpack (7.1.4) lib/action_dispatch/journey/router.rb:124:in `find_routes'
+actionpack (7.1.4) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.1.4) lib/action_dispatch/routing/route_set.rb:882:in `call'
+warden-jwt_auth (0.10.0) lib/warden/jwt_auth/middleware/token_dispatcher.rb:20:in `call'
+warden-jwt_auth (0.10.0) lib/warden/jwt_auth/middleware/revocation_manager.rb:21:in `call'
+rack (3.1.7) lib/rack/builder.rb:277:in `call'
+warden-jwt_auth (0.10.0) lib/warden/jwt_auth/middleware.rb:22:in `call'
+warden (1.2.9) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.9) lib/warden/manager.rb:34:in `catch'
+warden (1.2.9) lib/warden/manager.rb:34:in `call'
+rack (3.1.7) lib/rack/etag.rb:29:in `call'
+rack (3.1.7) lib/rack/conditional_get.rb:43:in `call'
+rack (3.1.7) lib/rack/head.rb:15:in `call'
+activerecord (7.1.4) lib/active_record/migration.rb:655:in `call'
+actionpack (7.1.4) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+activesupport (7.1.4) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (7.1.4) lib/action_dispatch/middleware/callbacks.rb:28:in `call'
+actionpack (7.1.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.4) lib/action_dispatch/middleware/actionable_exceptions.rb:16:in `call'
+actionpack (7.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+actionpack (7.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (7.1.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (7.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (7.1.4) lib/active_support/tagged_logging.rb:139:in `block in tagged'
+activesupport (7.1.4) lib/active_support/tagged_logging.rb:39:in `tagged'
+activesupport (7.1.4) lib/active_support/tagged_logging.rb:139:in `tagged'
+activesupport (7.1.4) lib/active_support/broadcast_logger.rb:241:in `method_missing'
+railties (7.1.4) lib/rails/rack/logger.rb:24:in `call'
+actionpack (7.1.4) lib/action_dispatch/middleware/remote_ip.rb:92:in `call'
+actionpack (7.1.4) lib/action_dispatch/middleware/request_id.rb:28:in `call'
+rack (3.1.7) lib/rack/runtime.rb:24:in `call'
+activesupport (7.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.1.4) lib/action_dispatch/middleware/server_timing.rb:59:in `block in call'
+actionpack (7.1.4) lib/action_dispatch/middleware/server_timing.rb:24:in `collect_events'
+actionpack (7.1.4) lib/action_dispatch/middleware/server_timing.rb:58:in `call'
+actionpack (7.1.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.4) lib/action_dispatch/middleware/static.rb:25:in `call'
+rack (3.1.7) lib/rack/sendfile.rb:114:in `call'
+actionpack (7.1.4) lib/action_dispatch/middleware/host_authorization.rb:141:in `call'
+railties (7.1.4) lib/rails/engine.rb:536:in `call'
+puma (6.4.3) lib/puma/configuration.rb:272:in `call'
+puma (6.4.3) lib/puma/request.rb:100:in `block in handle_request'
+puma (6.4.3) lib/puma/thread_pool.rb:378:in `with_force_shutdown'
+puma (6.4.3) lib/puma/request.rb:99:in `handle_request'
+puma (6.4.3) lib/puma/server.rb:464:in `process_client'
+puma (6.4.3) lib/puma/server.rb:245:in `block in run'
+puma (6.4.3) lib/puma/thread_pool.rb:155:in `block in spawn_thread'
+Started POST "//login" for ::1 at 2024-10-02 18:02:55 +0100
+Processing by Users::SessionsController#create as */*
+  Parameters: {"user"=>{"email"=>"daniel.mcpherson@live.co.uk", "password"=>"[FILTERED]"}, "session"=>{"user"=>{"email"=>"daniel.mcpherson@live.co.uk", "password"=>"[FILTERED]"}}}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 186)
+
+
+  
+NoMethodError (undefined method `rememberable_options' for class User):
+  
+activerecord (7.1.4) lib/active_record/dynamic_matchers.rb:22:in `method_missing'
+devise (4.9.4) lib/devise/strategies/rememberable.rb:56:in `remember_key'
+devise (4.9.4) lib/devise/strategies/rememberable.rb:60:in `remember_cookie'
+devise (4.9.4) lib/devise/strategies/rememberable.rb:15:in `valid?'
+warden (1.2.9) lib/warden/proxy.rb:367:in `block in _run_strategies_for'
+warden (1.2.9) lib/warden/proxy.rb:365:in `each'
+warden (1.2.9) lib/warden/proxy.rb:365:in `_run_strategies_for'
+warden (1.2.9) lib/warden/proxy.rb:335:in `_perform_authentication'
+warden (1.2.9) lib/warden/proxy.rb:133:in `authenticate!'
+devise (4.9.4) app/controllers/devise/sessions_controller.rb:19:in `create'
+actionpack (7.1.4) lib/action_controller/metal/basic_implicit_render.rb:6:in `send_action'
+actionpack (7.1.4) lib/abstract_controller/base.rb:224:in `process_action'
+actionpack (7.1.4) lib/action_controller/metal/rendering.rb:165:in `process_action'
+actionpack (7.1.4) lib/abstract_controller/callbacks.rb:259:in `block in process_action'
+activesupport (7.1.4) lib/active_support/callbacks.rb:110:in `run_callbacks'
+actionpack (7.1.4) lib/abstract_controller/callbacks.rb:258:in `process_action'
+actionpack (7.1.4) lib/action_controller/metal/rescue.rb:25:in `process_action'
+actionpack (7.1.4) lib/action_controller/metal/instrumentation.rb:74:in `block in process_action'
+activesupport (7.1.4) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.1.4) lib/active_support/notifications/instrumenter.rb:58:in `instrument'
+activesupport (7.1.4) lib/active_support/notifications.rb:206:in `instrument'
+actionpack (7.1.4) lib/action_controller/metal/instrumentation.rb:73:in `process_action'
+actionpack (7.1.4) lib/action_controller/metal/params_wrapper.rb:261:in `process_action'
+activerecord (7.1.4) lib/active_record/railties/controller_runtime.rb:32:in `process_action'
+actionpack (7.1.4) lib/abstract_controller/base.rb:160:in `process'
+actionpack (7.1.4) lib/action_controller/metal.rb:227:in `dispatch'
+actionpack (7.1.4) lib/action_controller/metal.rb:309:in `dispatch'
+actionpack (7.1.4) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.1.4) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.1.4) lib/action_dispatch/routing/mapper.rb:30:in `block in <class:Constraints>'
+actionpack (7.1.4) lib/action_dispatch/routing/mapper.rb:60:in `serve'
+actionpack (7.1.4) lib/action_dispatch/journey/router.rb:51:in `block in serve'
+actionpack (7.1.4) lib/action_dispatch/journey/router.rb:131:in `block in find_routes'
+actionpack (7.1.4) lib/action_dispatch/journey/router.rb:124:in `each'
+actionpack (7.1.4) lib/action_dispatch/journey/router.rb:124:in `find_routes'
+actionpack (7.1.4) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.1.4) lib/action_dispatch/routing/route_set.rb:882:in `call'
+warden-jwt_auth (0.10.0) lib/warden/jwt_auth/middleware/token_dispatcher.rb:20:in `call'
+warden-jwt_auth (0.10.0) lib/warden/jwt_auth/middleware/revocation_manager.rb:21:in `call'
+rack (3.1.7) lib/rack/builder.rb:277:in `call'
+warden-jwt_auth (0.10.0) lib/warden/jwt_auth/middleware.rb:22:in `call'
+warden (1.2.9) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.9) lib/warden/manager.rb:34:in `catch'
+warden (1.2.9) lib/warden/manager.rb:34:in `call'
+rack (3.1.7) lib/rack/etag.rb:29:in `call'
+rack (3.1.7) lib/rack/conditional_get.rb:43:in `call'
+rack (3.1.7) lib/rack/head.rb:15:in `call'
+activerecord (7.1.4) lib/active_record/migration.rb:655:in `call'
+actionpack (7.1.4) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+activesupport (7.1.4) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (7.1.4) lib/action_dispatch/middleware/callbacks.rb:28:in `call'
+actionpack (7.1.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.4) lib/action_dispatch/middleware/actionable_exceptions.rb:16:in `call'
+actionpack (7.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+actionpack (7.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (7.1.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (7.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (7.1.4) lib/active_support/tagged_logging.rb:139:in `block in tagged'
+activesupport (7.1.4) lib/active_support/tagged_logging.rb:39:in `tagged'
+activesupport (7.1.4) lib/active_support/tagged_logging.rb:139:in `tagged'
+activesupport (7.1.4) lib/active_support/broadcast_logger.rb:241:in `method_missing'
+railties (7.1.4) lib/rails/rack/logger.rb:24:in `call'
+actionpack (7.1.4) lib/action_dispatch/middleware/remote_ip.rb:92:in `call'
+actionpack (7.1.4) lib/action_dispatch/middleware/request_id.rb:28:in `call'
+rack (3.1.7) lib/rack/runtime.rb:24:in `call'
+activesupport (7.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.1.4) lib/action_dispatch/middleware/server_timing.rb:59:in `block in call'
+actionpack (7.1.4) lib/action_dispatch/middleware/server_timing.rb:24:in `collect_events'
+actionpack (7.1.4) lib/action_dispatch/middleware/server_timing.rb:58:in `call'
+actionpack (7.1.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.4) lib/action_dispatch/middleware/static.rb:25:in `call'
+rack (3.1.7) lib/rack/sendfile.rb:114:in `call'
+actionpack (7.1.4) lib/action_dispatch/middleware/host_authorization.rb:141:in `call'
+railties (7.1.4) lib/rails/engine.rb:536:in `call'
+puma (6.4.3) lib/puma/configuration.rb:272:in `call'
+puma (6.4.3) lib/puma/request.rb:100:in `block in handle_request'
+puma (6.4.3) lib/puma/thread_pool.rb:378:in `with_force_shutdown'
+puma (6.4.3) lib/puma/request.rb:99:in `handle_request'
+puma (6.4.3) lib/puma/server.rb:464:in `process_client'
+puma (6.4.3) lib/puma/server.rb:245:in `block in run'
+puma (6.4.3) lib/puma/thread_pool.rb:155:in `block in spawn_thread'
+Started POST "//login" for ::1 at 2024-10-02 18:03:37 +0100
+Processing by Users::SessionsController#create as */*
+  Parameters: {"user"=>{"email"=>"daniel.mcpherson@live.co.uk", "password"=>"[FILTERED]"}, "session"=>{"user"=>{"email"=>"daniel.mcpherson@live.co.uk", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "daniel.mcpherson@live.co.uk"], ["LIMIT", 1]]
+Completed 200 OK in 278ms (Views: 0.1ms | ActiveRecord: 1.6ms | Allocations: 7404)
+
+
+Started POST "//login" for ::1 at 2024-10-02 18:03:40 +0100
+Processing by Users::SessionsController#create as */*
+  Parameters: {"user"=>{"email"=>"daniel.mcpherson@live.co.uk", "password"=>"[FILTERED]"}, "session"=>{"user"=>{"email"=>"daniel.mcpherson@live.co.uk", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "daniel.mcpherson@live.co.uk"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 290ms (ActiveRecord: 0.1ms | Allocations: 1158)
+
+
+Started POST "//login" for ::1 at 2024-10-02 18:03:46 +0100
+Processing by Users::SessionsController#create as */*
+  Parameters: {"user"=>{"email"=>"daniel.mcpherson@live.co.uk", "password"=>"[FILTERED]"}, "session"=>{"user"=>{"email"=>"daniel.mcpherson@live.co.uk", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "daniel.mcpherson@live.co.uk"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 288ms (ActiveRecord: 0.1ms | Allocations: 1140)
+
+
+Started POST "//login" for ::1 at 2024-10-02 18:03:47 +0100
+Processing by Users::SessionsController#create as */*
+  Parameters: {"user"=>{"email"=>"daniel.mcpherson@live.co.uk", "password"=>"[FILTERED]"}, "session"=>{"user"=>{"email"=>"daniel.mcpherson@live.co.uk", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "daniel.mcpherson@live.co.uk"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 292ms (ActiveRecord: 0.1ms | Allocations: 1140)
+
+
+Started POST "//login" for ::1 at 2024-10-02 18:03:48 +0100
+Processing by Users::SessionsController#create as */*
+  Parameters: {"user"=>{"email"=>"daniel.mcpherson@live.co.uk", "password"=>"[FILTERED]"}, "session"=>{"user"=>{"email"=>"daniel.mcpherson@live.co.uk", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "daniel.mcpherson@live.co.uk"], ["LIMIT", 1]]
+Completed 200 OK in 292ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 1364)
+
+
+Started DELETE "//logout" for ::1 at 2024-10-02 18:05:17 +0100
+Processing by Users::SessionsController#destroy as */*
+Filter chain halted as :verify_signed_out_user rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 117)
+
+
+Started DELETE "//logout" for ::1 at 2024-10-02 18:05:32 +0100
+Processing by Users::SessionsController#destroy as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users/sessions_controller.rb:24:in `respond_to_on_destroy'
+Filter chain halted as :verify_signed_out_user rendered or redirected
+Completed 200 OK in 9ms (Views: 0.4ms | ActiveRecord: 0.4ms | Allocations: 850)
+
+
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Update (1.2ms)[0m  [1m[33mUPDATE "users" SET "jti" = ? WHERE "users"."id" = ?[0m  [["jti", "88ff12e7-51b5-4939-86c9-1c7a6f1c12af"], ["id", 1]]
+Started POST "//login" for ::1 at 2024-10-02 18:05:36 +0100
+Processing by Users::SessionsController#create as */*
+  Parameters: {"user"=>{"email"=>"daniel.mcpherson@live.co.uk", "password"=>"[FILTERED]"}, "session"=>{"user"=>{"email"=>"daniel.mcpherson@live.co.uk", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "daniel.mcpherson@live.co.uk"], ["LIMIT", 1]]
+Completed 200 OK in 301ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 1353)
+
+
+Started POST "//signup" for ::1 at 2024-10-02 18:05:41 +0100
+Processing by Users::RegistrationsController#create as */*
+  Parameters: {"user"=>{"email"=>"daniel.mcpherson@live.co.uk", "password"=>"[FILTERED]", "name"=>"Daniel"}, "registration"=>{"user"=>{"email"=>"daniel.mcpherson@live.co.uk", "password"=>"[FILTERED]", "name"=>"Daniel"}}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "daniel.mcpherson@live.co.uk"], ["LIMIT", 1]]
+  [1m[36mCACHE User Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "daniel.mcpherson@live.co.uk"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+Completed 422 Unprocessable Content in 290ms (Views: 0.1ms | ActiveRecord: 0.8ms | Allocations: 5327)
+
+
+Started POST "//signup" for ::1 at 2024-10-02 18:06:03 +0100
+Processing by Users::RegistrationsController#create as */*
+  Parameters: {"user"=>{"password"=>"[FILTERED]", "name"=>"Daniel"}, "registration"=>{"user"=>{"password"=>"[FILTERED]", "name"=>"Daniel"}}}
+Completed 422 Unprocessable Content in 284ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 1018)
+
+
+Started POST "//signup" for ::1 at 2024-10-02 18:06:07 +0100
+Processing by Users::RegistrationsController#create as */*
+  Parameters: {"user"=>{"email"=>"daniel.mcpherson@live.co.uk", "name"=>"Daniel"}, "registration"=>{"user"=>{"email"=>"daniel.mcpherson@live.co.uk", "name"=>"Daniel"}}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (2.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "daniel.mcpherson@live.co.uk"], ["LIMIT", 1]]
+  [1m[36mCACHE User Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "daniel.mcpherson@live.co.uk"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+Completed 422 Unprocessable Content in 11ms (Views: 0.2ms | ActiveRecord: 2.4ms | Allocations: 5241)
+
+
+Started POST "//signup" for ::1 at 2024-10-02 18:06:11 +0100
+Processing by Users::RegistrationsController#create as */*
+  Parameters: {"user"=>{"email"=>"daniel.mcpherson@live.co.uk", "password"=>"[FILTERED]", "name"=>"Daniel"}, "registration"=>{"user"=>{"email"=>"daniel.mcpherson@live.co.uk", "password"=>"[FILTERED]", "name"=>"Daniel"}}}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "daniel.mcpherson@live.co.uk"], ["LIMIT", 1]]
+  [1m[36mCACHE User Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "daniel.mcpherson@live.co.uk"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+Completed 422 Unprocessable Content in 302ms (Views: 0.1ms | ActiveRecord: 0.7ms | Allocations: 4678)
+
+
+Started POST "//signup" for ::1 at 2024-10-02 18:06:15 +0100
+Error occurred while parsing request parameters.
+Contents:
+
+{
+    "user": {
+        "email": "daniel.mcpherson@live.co.uk",
+        "password": "test123",
+        
+    }
+}
+Processing by Users::RegistrationsController#create as */*
+Completed 400 Bad Request in 0ms (ActiveRecord: 0.0ms | Allocations: 139)
+
+
+  
+ActionDispatch::Http::Parameters::ParseError (Error occurred while parsing request parameters):
+  
+app/controllers/application_controller.rb:7:in `configure_permitted_parameters'
+Started POST "//signup" for ::1 at 2024-10-02 18:06:19 +0100
+Processing by Users::RegistrationsController#create as */*
+  Parameters: {"user"=>{"email"=>"daniel.mcpherson@live.co.uk", "password"=>"[FILTERED]"}, "registration"=>{"user"=>{"email"=>"daniel.mcpherson@live.co.uk", "password"=>"[FILTERED]"}}}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "daniel.mcpherson@live.co.uk"], ["LIMIT", 1]]
+  [1m[36mCACHE User Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "daniel.mcpherson@live.co.uk"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+Completed 422 Unprocessable Content in 294ms (Views: 0.1ms | ActiveRecord: 0.7ms | Allocations: 4670)
+
+
+Started POST "//signup" for ::1 at 2024-10-02 18:42:46 +0100
+Processing by Users::RegistrationsController#create as */*
+  Parameters: {"user"=>{"email"=>"daniel.mcpherson@live.co.uk", "password"=>"[FILTERED]", "name"=>"Daniel"}, "registration"=>{"user"=>{"email"=>"daniel.mcpherson@live.co.uk", "password"=>"[FILTERED]", "name"=>"Daniel"}}}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (7.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "daniel.mcpherson@live.co.uk"], ["LIMIT", 1]]
+  [1m[36mCACHE User Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "daniel.mcpherson@live.co.uk"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+Completed 500 Internal Server Error in 280ms (ActiveRecord: 10.1ms | Allocations: 8767)
+
+
+  
+NameError (undefined local variable or method `errors' for an instance of Users::RegistrationsController):
+  
+app/controllers/users/registrations_controller.rb:21:in `respond_with'
+Started POST "//signup" for ::1 at 2024-10-02 18:42:59 +0100
+Processing by Users::RegistrationsController#create as */*
+  Parameters: {"user"=>{"email"=>"daniel.mcpherson@live.co.uk", "password"=>"[FILTERED]", "name"=>"Daniel"}, "registration"=>{"user"=>{"email"=>"daniel.mcpherson@live.co.uk", "password"=>"[FILTERED]", "name"=>"Daniel"}}}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (2.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "daniel.mcpherson@live.co.uk"], ["LIMIT", 1]]
+  [1m[36mCACHE User Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "daniel.mcpherson@live.co.uk"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+Completed 422 Unprocessable Content in 281ms (Views: 0.1ms | ActiveRecord: 3.8ms | Allocations: 9959)
+
+
+Started POST "//signup" for ::1 at 2024-10-02 18:43:15 +0100
+Processing by Users::RegistrationsController#create as */*
+  Parameters: {"user"=>{"email"=>"daniel.mcpherson@live.co.uk", "password"=>"[FILTERED]", "name"=>"Daniel"}, "registration"=>{"user"=>{"email"=>"daniel.mcpherson@live.co.uk", "password"=>"[FILTERED]", "name"=>"Daniel"}}}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "daniel.mcpherson@live.co.uk"], ["LIMIT", 1]]
+  [1m[36mCACHE User Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "daniel.mcpherson@live.co.uk"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+Completed 422 Unprocessable Content in 328ms (Views: 0.1ms | ActiveRecord: 1.8ms | Allocations: 10574)
+
+
+Started POST "//signup" for ::1 at 2024-10-02 18:46:08 +0100
+Processing by Users::RegistrationsController#create as */*
+  Parameters: {"user"=>{"email"=>"daniel.mcpherson@live.co.uk", "password"=>"[FILTERED]", "name"=>"Daniel"}, "registration"=>{"user"=>{"email"=>"daniel.mcpherson@live.co.uk", "password"=>"[FILTERED]", "name"=>"Daniel"}}}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (1.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "daniel.mcpherson@live.co.uk"], ["LIMIT", 1]]
+  [1m[36mCACHE User Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "daniel.mcpherson@live.co.uk"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+Completed 422 Unprocessable Content in 273ms (Views: 0.1ms | ActiveRecord: 2.8ms | Allocations: 10551)
+
+
+Started POST "//signup" for ::1 at 2024-10-02 18:46:09 +0100
+Processing by Users::RegistrationsController#create as */*
+  Parameters: {"user"=>{"email"=>"daniel.mcpherson@live.co.uk", "password"=>"[FILTERED]", "name"=>"Daniel"}, "registration"=>{"user"=>{"email"=>"daniel.mcpherson@live.co.uk", "password"=>"[FILTERED]", "name"=>"Daniel"}}}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "daniel.mcpherson@live.co.uk"], ["LIMIT", 1]]
+  [1m[36mCACHE User Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "daniel.mcpherson@live.co.uk"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+Completed 422 Unprocessable Content in 295ms (Views: 0.1ms | ActiveRecord: 0.8ms | Allocations: 5276)
+
+
+Started POST "//signup" for ::1 at 2024-10-02 18:46:10 +0100
+Processing by Users::RegistrationsController#create as */*
+  Parameters: {"user"=>{"email"=>"daniel.mcpherson@live.co.uk", "password"=>"[FILTERED]", "name"=>"Daniel"}, "registration"=>{"user"=>{"email"=>"daniel.mcpherson@live.co.uk", "password"=>"[FILTERED]", "name"=>"Daniel"}}}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "daniel.mcpherson@live.co.uk"], ["LIMIT", 1]]
+  [1m[36mCACHE User Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "daniel.mcpherson@live.co.uk"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+Completed 422 Unprocessable Content in 292ms (Views: 0.1ms | ActiveRecord: 0.8ms | Allocations: 5274)
+
+
+Started POST "//signup" for ::1 at 2024-10-02 18:46:29 +0100
+Processing by Users::RegistrationsController#create as */*
+  Parameters: {"user"=>{"email"=>"daniel.mcpherson@live.co.uk", "password"=>"[FILTERED]", "name"=>"Daniel"}, "registration"=>{"user"=>{"email"=>"daniel.mcpherson@live.co.uk", "password"=>"[FILTERED]", "name"=>"Daniel"}}}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (1.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "daniel.mcpherson@live.co.uk"], ["LIMIT", 1]]
+  [1m[36mCACHE User Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "daniel.mcpherson@live.co.uk"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+Completed 500 Internal Server Error in 283ms (ActiveRecord: 2.7ms | Allocations: 10540)
+
+
+  
+NoMethodError (undefined method `full_messages=' for an instance of ActiveModel::Errors):
+  
+app/controllers/users/registrations_controller.rb:22:in `respond_with'
+Started POST "//signup" for ::1 at 2024-10-02 18:47:10 +0100
+Processing by Users::RegistrationsController#create as */*
+  Parameters: {"user"=>{"email"=>"daniel.mcpherson@live.co.uk", "password"=>"[FILTERED]", "name"=>"Daniel"}, "registration"=>{"user"=>{"email"=>"daniel.mcpherson@live.co.uk", "password"=>"[FILTERED]", "name"=>"Daniel"}}}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (1.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "daniel.mcpherson@live.co.uk"], ["LIMIT", 1]]
+  [1m[36mCACHE User Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "daniel.mcpherson@live.co.uk"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+Completed 422 Unprocessable Content in 279ms (Views: 0.1ms | ActiveRecord: 2.5ms | Allocations: 10550)
+
+
+Started POST "//signup" for ::1 at 2024-10-02 18:49:45 +0100
+Processing by Users::RegistrationsController#create as */*
+  Parameters: {"user"=>{"email"=>"daniel.mcpherson@live.co.uk", "password"=>"[FILTERED]", "name"=>"Daniel"}, "registration"=>{"user"=>{"email"=>"daniel.mcpherson@live.co.uk", "password"=>"[FILTERED]", "name"=>"Daniel"}}}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (1.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "daniel.mcpherson@live.co.uk"], ["LIMIT", 1]]
+  [1m[36mCACHE User Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "daniel.mcpherson@live.co.uk"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+Completed 422 Unprocessable Content in 279ms (Views: 0.1ms | ActiveRecord: 3.0ms | Allocations: 10552)
+
+
+Started POST "//signup" for ::1 at 2024-10-02 18:52:35 +0100
+Processing by Users::RegistrationsController#create as */*
+  Parameters: {"user"=>{"email"=>"daniel.mcpherson@live.co.uk", "password"=>"[FILTERED]", "name"=>"Daniel"}, "registration"=>{"user"=>{"email"=>"daniel.mcpherson@live.co.uk", "password"=>"[FILTERED]", "name"=>"Daniel"}}}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (1.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "daniel.mcpherson@live.co.uk"], ["LIMIT", 1]]
+  [1m[36mCACHE User Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "daniel.mcpherson@live.co.uk"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+Completed 500 Internal Server Error in 272ms (ActiveRecord: 2.8ms | Allocations: 9927)
+
+
+  
+NameError (undefined local variable or method `erros' for an instance of Users::RegistrationsController):
+  
+app/controllers/users/registrations_controller.rb:38:in `create_error_message'
+app/controllers/users/registrations_controller.rb:22:in `respond_with'
+Started POST "//signup" for ::1 at 2024-10-02 18:53:19 +0100
+Processing by Users::RegistrationsController#create as */*
+  Parameters: {"user"=>{"email"=>"daniel.mcpherson@live.co.uk", "password"=>"[FILTERED]", "name"=>"Daniel"}, "registration"=>{"user"=>{"email"=>"daniel.mcpherson@live.co.uk", "password"=>"[FILTERED]", "name"=>"Daniel"}}}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (1.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "daniel.mcpherson@live.co.uk"], ["LIMIT", 1]]
+  [1m[36mCACHE User Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "daniel.mcpherson@live.co.uk"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+Completed 500 Internal Server Error in 279ms (ActiveRecord: 2.7ms | Allocations: 9943)
+
+
+  
+NameError (undefined local variable or method `erros' for an instance of Users::RegistrationsController):
+  
+app/controllers/users/registrations_controller.rb:38:in `create_error_message'
+app/controllers/users/registrations_controller.rb:22:in `respond_with'
+Started POST "//signup" for ::1 at 2024-10-02 18:54:11 +0100
+Processing by Users::RegistrationsController#create as */*
+  Parameters: {"user"=>{"email"=>"daniel.mcpherson@live.co.uk", "password"=>"[FILTERED]", "name"=>"Daniel"}, "registration"=>{"user"=>{"email"=>"daniel.mcpherson@live.co.uk", "password"=>"[FILTERED]", "name"=>"Daniel"}}}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "daniel.mcpherson@live.co.uk"], ["LIMIT", 1]]
+  [1m[36mCACHE User Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "daniel.mcpherson@live.co.uk"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+Completed 500 Internal Server Error in 273ms (ActiveRecord: 2.3ms | Allocations: 9942)
+
+
+  
+NameError (undefined local variable or method `erros' for an instance of Users::RegistrationsController):
+  
+app/controllers/users/registrations_controller.rb:38:in `create_error_message'
+app/controllers/users/registrations_controller.rb:22:in `respond_with'
+Started POST "//signup" for ::1 at 2024-10-02 18:54:42 +0100
+Processing by Users::RegistrationsController#create as */*
+  Parameters: {"user"=>{"email"=>"daniel.mcpherson@live.co.uk", "password"=>"[FILTERED]", "name"=>"Daniel"}, "registration"=>{"user"=>{"email"=>"daniel.mcpherson@live.co.uk", "password"=>"[FILTERED]", "name"=>"Daniel"}}}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (1.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "daniel.mcpherson@live.co.uk"], ["LIMIT", 1]]
+  [1m[36mCACHE User Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "daniel.mcpherson@live.co.uk"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+Completed 422 Unprocessable Content in 278ms (Views: 0.1ms | ActiveRecord: 3.1ms | Allocations: 10563)
+
+
+Started POST "//signup" for ::1 at 2024-10-02 18:54:55 +0100
+Processing by Users::RegistrationsController#create as */*
+  Parameters: {"user"=>{"email"=>"daniel.mcpherson@live.co.uk", "password"=>"[FILTERED]", "name"=>"Daniel"}, "registration"=>{"user"=>{"email"=>"daniel.mcpherson@live.co.uk", "password"=>"[FILTERED]", "name"=>"Daniel"}}}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (3.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "daniel.mcpherson@live.co.uk"], ["LIMIT", 1]]
+  [1m[36mCACHE User Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "daniel.mcpherson@live.co.uk"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+Completed 422 Unprocessable Content in 281ms (Views: 0.1ms | ActiveRecord: 4.3ms | Allocations: 10514)
+
+
+Started POST "//signup" for ::1 at 2024-10-02 18:55:30 +0100
+Processing by Users::RegistrationsController#create as */*
+  Parameters: {"user"=>{"email"=>"daniel.mcpherson@live.co.uk", "password"=>"[FILTERED]", "name"=>"Daniel"}, "registration"=>{"user"=>{"email"=>"daniel.mcpherson@live.co.uk", "password"=>"[FILTERED]", "name"=>"Daniel"}}}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (1.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "daniel.mcpherson@live.co.uk"], ["LIMIT", 1]]
+  [1m[36mCACHE User Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "daniel.mcpherson@live.co.uk"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+Completed 422 Unprocessable Content in 278ms (Views: 0.1ms | ActiveRecord: 2.9ms | Allocations: 9946)
+
+
+Started POST "//signup" for ::1 at 2024-10-02 18:55:45 +0100
+Processing by Users::RegistrationsController#create as */*
+  Parameters: {"user"=>{"email"=>"daniel.mcpherson@live.co.uk", "name"=>"Daniel"}, "registration"=>{"user"=>{"email"=>"daniel.mcpherson@live.co.uk", "name"=>"Daniel"}}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (2.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "daniel.mcpherson@live.co.uk"], ["LIMIT", 1]]
+  [1m[36mCACHE User Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "daniel.mcpherson@live.co.uk"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+Completed 422 Unprocessable Content in 10ms (Views: 0.2ms | ActiveRecord: 2.4ms | Allocations: 5227)
+
+
+Started POST "//signup" for ::1 at 2024-10-02 18:55:51 +0100
+Processing by Users::RegistrationsController#create as */*
+  Parameters: {"user"=>{"password"=>"[FILTERED]", "name"=>"Daniel"}, "registration"=>{"user"=>{"password"=>"[FILTERED]", "name"=>"Daniel"}}}
+Completed 422 Unprocessable Content in 290ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 1008)
+
+
+Started POST "//signup" for ::1 at 2024-10-02 18:55:55 +0100
+Error occurred while parsing request parameters.
+Contents:
+
+{
+    "user": {
+        "email": "daniel.mcpherson@live.co.uk",
+        "password": "test123",
+
+    }
+}
+Processing by Users::RegistrationsController#create as */*
+Completed 400 Bad Request in 0ms (ActiveRecord: 0.0ms | Allocations: 132)
+
+
+  
+ActionDispatch::Http::Parameters::ParseError (Error occurred while parsing request parameters):
+  
+app/controllers/application_controller.rb:7:in `configure_permitted_parameters'
+Started POST "//signup" for ::1 at 2024-10-02 18:55:57 +0100
+Processing by Users::RegistrationsController#create as */*
+  Parameters: {"user"=>{"email"=>"daniel.mcpherson@live.co.uk", "password"=>"[FILTERED]"}, "registration"=>{"user"=>{"email"=>"daniel.mcpherson@live.co.uk", "password"=>"[FILTERED]"}}}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "daniel.mcpherson@live.co.uk"], ["LIMIT", 1]]
+  [1m[36mCACHE User Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "daniel.mcpherson@live.co.uk"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+Completed 422 Unprocessable Content in 295ms (Views: 0.1ms | ActiveRecord: 0.7ms | Allocations: 4658)
+
+
+Started POST "//login" for ::1 at 2024-10-02 18:56:05 +0100
+Processing by Users::SessionsController#create as */*
+  Parameters: {"user"=>{"email"=>"daniel.mcpherson@live.co.uk", "password"=>"[FILTERED]"}, "session"=>{"user"=>{"email"=>"daniel.mcpherson@live.co.uk", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "daniel.mcpherson@live.co.uk"], ["LIMIT", 1]]
+Completed 200 OK in 295ms (Views: 0.1ms | ActiveRecord: 0.4ms | Allocations: 2151)
+
+
+Started POST "//login" for ::1 at 2024-10-02 18:56:12 +0100
+Processing by Users::SessionsController#create as */*
+  Parameters: {"user"=>{"email"=>"daniel.mcpherson@live.co.uk", "password"=>"[FILTERED]"}, "session"=>{"user"=>{"email"=>"daniel.mcpherson@live.co.uk", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "daniel.mcpherson@live.co.uk"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 294ms (ActiveRecord: 0.1ms | Allocations: 1143)
+
+
+Started DELETE "//logout" for ::1 at 2024-10-02 18:56:26 +0100
+Processing by Users::SessionsController#destroy as */*
+Filter chain halted as :verify_signed_out_user rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
